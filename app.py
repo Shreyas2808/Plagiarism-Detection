@@ -32,7 +32,7 @@ users = {}
 
 WORD = re.compile(r'\w+')
 
-google_api_key = "AIzaSyA7v2WJdmXkmudSfaa0j8a3iVavfk7UzgM"
+google_api_key = "use your google key"
 google_cse_id = "758ad3e78879f0e08"
 
 def read_file(file):
