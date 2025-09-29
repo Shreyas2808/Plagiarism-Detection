@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plagiarism Check Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Plagiarism Check Results</h1>
+        {% if results %}
+            <ul>
+                {% for url, similarity in results %}
+                    <li>
+                        <a href="{{ url }}">{{ url }}</a><br>
+                        Similarity: {{ similarity }}%
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No similar content found.</p>
+        {% endif %}
+
+        <!-- Go Back Button -->
+        <br>
+        <a href="{{ url_for('index') }}" class="go-back-btn">Go Back</a>
+    </div>
+</body>
+</html>

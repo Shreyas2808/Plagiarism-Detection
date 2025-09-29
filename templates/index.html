@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plagiarism Checker</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script>
+        function toggleInput() {
+            const fileOption = document.getElementById('file');
+            const textOption = document.getElementById('text');
+            const fileUpload = document.getElementById('file_upload');
+            const searchQuery = document.getElementById('search_query');
+
+            if (fileOption.checked) {
+                fileUpload.style.display = 'block';
+                searchQuery.style.display = 'none';
+            } else if (textOption.checked) {
+                fileUpload.style.display = 'none';
+                searchQuery.style.display = 'block';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Plagiarism Checker</h1>
+        <form method="POST" action="/analyze" enctype="multipart/form-data">
+            <p>Choose an option:</p>
+            <input type="radio" id="file" name="choice" value="file" onclick="toggleInput()">
+            <label for="file">Upload a file</label><br>
+            <input type="radio" id="text" name="choice" value="text" onclick="toggleInput()">
+            <label for="text">Enter a search query</label><br>
+            <br>
+            <input type="file" id="file_upload" name="file" style="display:none;">
+            <br>
+            <input type="text" id="search_query" name="search_query" style="display:none;">
+            <br>
+            <button type="submit">Analyze</button>
+        </form>
+        <br>
+        <a href="/logout" style="color: red; text-decoration: none;">Logout</a>
+    </div>
+</body>
+</html>
